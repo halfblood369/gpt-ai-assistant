@@ -4,6 +4,7 @@ import config from '../config/index.js';
 import { validateLineSignature } from '../middleware/index.js';
 import storage from '../storage/index.js';
 import { fetchVersion, getVersion } from '../utils/index.js';
+import filterMessage from '../utils/get-command';
 
 const app = express();
 
@@ -26,7 +27,8 @@ app.get('/', async (req, res) => {
 app.post(config.APP_WEBHOOK_PATH, validateLineSignature, async (req, res) => {
   try {
     await storage.initialize();
-    await handleEvents(req.body.events);
+    const events = filterMessage(req.body.events)
+    await handleEvents(events);
     res.sendStatus(200);
   } catch (err) {
     console.error(err.message);
