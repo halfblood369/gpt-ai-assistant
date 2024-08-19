@@ -14,6 +14,7 @@ import getCommand from './get-command.js';
 import getVersion from './get-version.js';
 import replyMessage from './reply-message.js';
 import validateSignature from './validate-signature.js';
+import filterMessage from './filter-events.js';
 
 export {
   addMark,
@@ -32,4 +33,5 @@ export {
   getVersion,
   replyMessage,
   validateSignature,
+  filterMessage,
 };

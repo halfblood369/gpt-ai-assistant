@@ -4,7 +4,7 @@ import config from '../config/index.js';
 import { validateLineSignature } from '../middleware/index.js';
 import storage from '../storage/index.js';
 import { fetchVersion, getVersion } from '../utils/index.js';
-import filterMessage from '../utils/get-command';
+import filterMessage from '../utils/index.js';
 
 const app = express();
 
